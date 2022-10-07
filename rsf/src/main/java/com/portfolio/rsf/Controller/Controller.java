@@ -1,4 +1,4 @@
-package com.portfolio.rsf.Controller;
+ package com.portfolio.rsf.Controller;
 
 import com.portfolio.rsf.Model.Persona;
 import com.portfolio.rsf.service.IPersonaService;
@@ -26,12 +26,13 @@ public class Controller {
     
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/new/persona")
-    public void agregarPersona(@RequestBody Persona pers){
+    public String agregarPersona(@RequestBody Persona pers){
        persoServ.crearPersona(pers);
+       return "La persona fue creada correctamente";
     }
     
-    
-    @GetMapping ("/ver/personas")
+   
+    @GetMapping ("ver/personas")
     @ResponseBody
     public List<Persona> verPersonas(){
     return persoServ.verPersonas();
@@ -45,19 +46,22 @@ public class Controller {
     
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
-    public void borrarPersona(@PathVariable Long id){
+    public String borrarPersona(@PathVariable Long id){
         persoServ.borrarPersona(id);
+        return "La persona fue eliminada correctamente";
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("editar/personas/{id}")
+    @PutMapping("/editar/personas/{id}")
         public Persona editPersona(@PathVariable Long id,
                                    @RequestParam("nombre") String nuevoNombre,
-                                   @RequestParam("apellido") String nuevoApellido){
+                                   @RequestParam("apellido") String nuevoApellido,
+                                   @RequestParam("img") String nuevoImg){
         Persona persona = persoServ.buscarPersona(id);
         
         persona.setNombre(nuevoNombre);
         persona.setApellido(nuevoApellido);
+        persona.setImg(nuevoImg);
         
         persoServ.save(persona);
             return persona;

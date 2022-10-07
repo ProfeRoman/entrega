@@ -42,11 +42,11 @@ public class Experiencia {
     }
 
     public void setNombreE(String nombreExp) {
-        this.nombreE = nombreE;
+        this.nombreE = nombreExp;
     }
 
     public void setDescripcionE(String descripcionExp) {
-        this.descripcionE = descripcionE;
+        this.descripcionE = descripcionExp;
     }
     
     
