@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 //@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "https://frontendscollouno.web.app/portfolio")
+@CrossOrigin(origins = "https://frontendscollouno.web.app")
 public class Controller {
     
     @Autowired
@@ -32,7 +32,7 @@ public class Controller {
     }
     
    
-    @GetMapping ("ver/personas")
+    @GetMapping ("/ver/personas")
     @ResponseBody
     public List<Persona> verPersonas(){
     return persoServ.verPersonas();
