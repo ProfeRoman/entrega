@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController //le decimos que es un controller
 //@CrossOrigin(origins = "http://localhost:4200") //le decimos el origen
-@CrossOrigin(origins = "https://frontendscollouno.web.app")
+@CrossOrigin(origins = "https://frontendscollouno.web.app/portfolio")
 @RequestMapping("/skill")
 public class CHys {
 
