@@ -33,7 +33,7 @@ public class Controller {
     
    
     @GetMapping ("/ver/personas")
-    @CrossOrigin("https://frontendscollouno.web.app/")
+    @CrossOrigin("https://frontendscollouno.web.app")
     @ResponseBody
     public List<Persona> verPersonas(){
     return persoServ.verPersonas();
